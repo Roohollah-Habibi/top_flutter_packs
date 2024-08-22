@@ -1,1 +1,0 @@
-const splashScreenImage = 'assets/images/flutter-pack1.png';
