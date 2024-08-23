@@ -62,23 +62,47 @@ void goHomeScreen(BuildContext ctx) {
 
 // Body mdel for bodyExpansion
 List<BodyModel> bodyModel = [
-  const BodyModel(
+   BodyModel(
+    headName: 'Shimmer',
     imageSrc: 'assets/images/shimmer.gif',
     bodyDetails:
         'A package provides an easy way to add shimmer effect in Flutter project',
+    page: DetailsScreen(),
   ),
+  //  BodyModel(
+  //   headName: 'FontAwesome',
+  //   imageSrc: 'assets/images/font-awesome.png',
+  //   bodyDetails:
+  //       'Font Awesome is the Internet\'s icon library and toolkit, used by millions of designers, developers, and content creators.',
+  //   page: DetailsScreen(),
+  // ),
+  //  BodyModel(
+  //   headName: 'GoogleFonts',
+  //   imageSrc: 'assets/images/google-fonts.gif',
+  //   bodyDetails:
+  //       'Google Fonts collaborates with type designers, foundries and the design community worldwide to create a directory of open source fonts.',
+  //   page: DetailsScreen(),
+  // ),
+  // BodyModel(
+  //   headName: 'flutter-toast',
+  //   imageSrc: 'assets/images/flutter_toast.gif',
+  //   bodyDetails:
+  //       'Now this toast library supports two kinds of toast messages one which requires BuildContext other with No BuildContext',
+  //   page: DetailsScreen(),
+  // ),
 ];
 
 // show expansion panel in HomeScreen page
 List<Item> expansionPanelHeaderAndBody = [
-  Item(
-    header: const HeaderExpansion(
-      headerName: 'Shimmer',
-      newPage: DetailsScreen(),
+  for (BodyModel bodyItem in bodyModel)
+    Item(
+      header: HeaderExpansion(
+        headerName: bodyItem.headName,
+        newPage: bodyItem.page,
+      ),
+      body: ExpansionBody(
+          imgSrc: bodyItem.imageSrc,
+          bodyDetails: bodyItem.bodyDetails,
+          newPage: bodyItem.page),
     ),
-    body: ExpansionBody(
-        imgSrc: bodyModel[0].imageSrc,
-        bodyDetails: bodyModel[0].bodyDetails,
-        newPage: const DetailsScreen()),
-  ),
 ];

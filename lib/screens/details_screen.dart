@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mypackages_use/models/Item.dart';
+
 
 class DetailsScreen extends StatelessWidget {
   const DetailsScreen({super.key});
@@ -8,9 +10,7 @@ class DetailsScreen extends StatelessWidget {
     return  Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: FlutterLogo(
-          size: 100,
-        ),
+        child: FlutterLogo(),
       ),
     );
   }
