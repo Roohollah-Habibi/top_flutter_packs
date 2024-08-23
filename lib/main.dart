@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mypackages_use/screens/home_screen.dart';
 
-import 'screens/splash_screen.dart';
-
-void main()=> runApp(MyApp());
+void main()=> runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -11,7 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: HomeScreen(),
     );
   }
 }

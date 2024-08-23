@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:mypackages_use/custom_widgets/expansion_body.dart';
+import 'package:mypackages_use/models/Item.dart';
+import 'package:mypackages_use/custom_widgets/custom_expansion_panel.dart';
+import 'package:mypackages_use/models/bodyModel.dart';
+import 'package:mypackages_use/screens/details_screen.dart';
 import 'package:mypackages_use/screens/home_screen.dart';
 import 'package:mypackages_use/stylesDecoration/stylesAndDecorations.dart';
 
 const splashScreenImage = 'assets/images/flutter-pack1.png';
 
 // check if the layout is landscape or portrait
-Widget orientationBuilder(BuildContext context, Orientation orientation){
+Widget orientationBuilder(BuildContext context, Orientation orientation) {
   if (orientation == Orientation.landscape) {
     return Row(
       children: [
@@ -34,7 +39,7 @@ Widget orientationBuilder(BuildContext context, Orientation orientation){
   }
 }
 
-// create an outlineButton
+// create an outlineButton in SplashScreen
 OutlinedButton buildOutlinedButton(BuildContext context) {
   return OutlinedButton.icon(
     style: splashButtonStyle,
@@ -47,9 +52,33 @@ OutlinedButton buildOutlinedButton(BuildContext context) {
     ),
   );
 }
-// route to HomeScreen()
+
+// route to HomeScreen() from Splash Screen
 void goHomeScreen(BuildContext ctx) {
   Navigator.of(ctx).push(MaterialPageRoute(
     builder: (context) => const HomeScreen(),
   ));
 }
+
+// Body mdel for bodyExpansion
+List<BodyModel> bodyModel = [
+  const BodyModel(
+    imageSrc: 'assets/images/shimmer.gif',
+    bodyDetails:
+        'A package provides an easy way to add shimmer effect in Flutter project',
+  ),
+];
+
+// show expansion panel in HomeScreen page
+List<Item> expansionPanelHeaderAndBody = [
+  Item(
+    header: const HeaderExpansion(
+      headerName: 'Shimmer',
+      newPage: DetailsScreen(),
+    ),
+    body: ExpansionBody(
+        imgSrc: bodyModel[0].imageSrc,
+        bodyDetails: bodyModel[0].bodyDetails,
+        newPage: const DetailsScreen()),
+  ),
+];

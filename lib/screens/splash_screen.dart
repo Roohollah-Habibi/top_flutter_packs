@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mypackages_use/methodsAndConstants/methodsAndConstants.dart';
+import 'package:mypackages_use/methods_and_constants/methodsAndConstants.dart';
 import 'package:mypackages_use/stylesDecoration/stylesAndDecorations.dart';
-import 'home_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
