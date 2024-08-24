@@ -90,7 +90,14 @@ List<BodyModel> bodyModel = [
   ),
   const BodyModel(
     headName: 'flutter-toast',
-    imageSrc: 'assets/images/flutter_toast.gif',
+    imageSrc: 'assets/images/toast.png',
+    bodyDetails:
+        'Now this toast library supports two kinds of toast messages one which requires BuildContext other with No BuildContext',
+    page: ToastScreen(),
+  ),
+  const BodyModel(
+    headName: 'audio players',
+    imageSrc: 'assets/images/toast.png',
     bodyDetails:
         'Now this toast library supports two kinds of toast messages one which requires BuildContext other with No BuildContext',
     page: ToastScreen(),
