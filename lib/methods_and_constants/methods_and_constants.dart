@@ -10,6 +10,7 @@ import 'package:mypackages_use/screens/google_fonts_screen.dart';
 import 'package:mypackages_use/screens/home_screen.dart';
 import 'package:mypackages_use/screens/photo_view_screen.dart';
 import 'package:mypackages_use/screens/rflutter_screen.dart';
+import 'package:mypackages_use/screens/share_plus_screen.dart';
 import 'package:mypackages_use/screens/shimmer.dart';
 import 'package:mypackages_use/screens/toast_screen.dart';
 import 'package:mypackages_use/stylesDecoration/stylesAndDecorations.dart';
@@ -119,6 +120,7 @@ List<BodyModel> bodyModel = [
     'A simple zoomable image/content widget for Flutter.PhotoView enables images to become able to zoom and pan with user gestures such as pinch, rotate and drag',
     page: PhotoViewScreen(),
   ),
+  const BodyModel(imageSrc: 'assets/images/share_links.png', bodyDetails: 'A Flutter plugin to share content from your Flutter app via the platform\'s share dialog.', page: SharePlusScreen(), headName: 'Share_plus'),
 ];
 
 // show expansion panel in HomeScreen page
