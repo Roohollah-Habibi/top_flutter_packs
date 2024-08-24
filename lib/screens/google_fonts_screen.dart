@@ -10,7 +10,7 @@ class GoogleFontsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(centerTitle: true,title: const Text('Google Fonts'),),
       body: buildBodyCenter(list: [
         SizedBox(height: 140,child: Image.asset(imgSrc,fit: BoxFit.contain,)),
         Text('some Text styled with googleFonts',style: GoogleFonts.greatVibes(fontSize: 25,color: Colors.red),textAlign: TextAlign.center,),

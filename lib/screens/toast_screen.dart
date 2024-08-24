@@ -8,18 +8,13 @@ const String imgSrc = 'assets/images/toast.png';
 const String description =
     'Now this toast library supports two kinds of toast messages one which requires BuildContext other with No BuildContext';
 
-class ToastScreen extends StatefulWidget {
+class ToastScreen extends StatelessWidget {
   const ToastScreen({super.key});
 
   @override
-  State<ToastScreen> createState() => _ToastScreenState();
-}
-
-class _ToastScreenState extends State<ToastScreen> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(centerTitle: true,title: const Text('Flutter Toast'),),
       body: buildBodyCenter(list: [
         SizedBox(
           height: 230,

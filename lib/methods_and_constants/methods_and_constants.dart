@@ -4,9 +4,12 @@ import 'package:mypackages_use/custom_widgets/expansion_body.dart';
 import 'package:mypackages_use/models/Item.dart';
 import 'package:mypackages_use/custom_widgets/custom_expansion_panel.dart';
 import 'package:mypackages_use/models/bodyModel.dart';
+import 'package:mypackages_use/screens/audio_player_screen.dart';
 import 'package:mypackages_use/screens/font_awsome_screen.dart';
 import 'package:mypackages_use/screens/google_fonts_screen.dart';
 import 'package:mypackages_use/screens/home_screen.dart';
+import 'package:mypackages_use/screens/photo_view_screen.dart';
+import 'package:mypackages_use/screens/rflutter_screen.dart';
 import 'package:mypackages_use/screens/shimmer.dart';
 import 'package:mypackages_use/screens/toast_screen.dart';
 import 'package:mypackages_use/stylesDecoration/stylesAndDecorations.dart';
@@ -97,10 +100,24 @@ List<BodyModel> bodyModel = [
   ),
   const BodyModel(
     headName: 'audio players',
-    imageSrc: 'assets/images/toast.png',
+    imageSrc: 'assets/images/audio.png',
     bodyDetails:
-        'Now this toast library supports two kinds of toast messages one which requires BuildContext other with No BuildContext',
-    page: ToastScreen(),
+        'A Flutter plugin to play multiple simultaneously audio files, works for Android, iOS, Linux, macOS, Windows, and web.',
+    page: AudioPlayerScreen(),
+  ),
+  const BodyModel(
+    headName: 'rFlutter Alert',
+    imageSrc: 'assets/images/rflutter_alert.gif',
+    bodyDetails:
+        'RFlutter Alert is super customizable and easy-to-use alert/popup dialogs for Flutter. You may create reusable alert styles or add buttons as much as you want with ease.',
+    page: RFlutterScreen(),
+  ),
+  const BodyModel(
+    headName: 'photo_view',
+    imageSrc: 'assets/images/tj9.png',
+    bodyDetails:
+    'A simple zoomable image/content widget for Flutter.PhotoView enables images to become able to zoom and pan with user gestures such as pinch, rotate and drag',
+    page: PhotoViewScreen(),
   ),
 ];
 

@@ -39,6 +39,9 @@ dependencies:
   font_awesome_flutter: ^10.7.0
   shimmer: ^3.0.0
   fluttertoast: ^8.2.8
+  audioplayers: ^5.2.1
+  rflutter_alert: ^2.0.7
+  photo_view: ^0.15.0
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +67,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/audios/
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

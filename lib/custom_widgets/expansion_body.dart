@@ -23,9 +23,9 @@ class ExpansionBody extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(
-              height: 150,
+              height: 200,
               width: double.infinity,
-              child: Image.asset(imgSrc, fit: BoxFit.cover)),
+              child: Image.asset(imgSrc, fit: BoxFit.fill)),
           buildDivider,
           Text(
             bodyDetails,

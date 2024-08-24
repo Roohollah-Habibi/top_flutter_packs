@@ -30,7 +30,7 @@ class FontAwesomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(centerTitle: true,title: const Text('FontAwesome'),),
       body: Container(
         decoration: BoxDecoration(gradient: splashScreenBackgroundColor),
         child: buildBodyCenter(
