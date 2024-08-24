@@ -8,6 +8,7 @@ import 'package:mypackages_use/screens/font_awsome_screen.dart';
 import 'package:mypackages_use/screens/google_fonts_screen.dart';
 import 'package:mypackages_use/screens/home_screen.dart';
 import 'package:mypackages_use/screens/shimmer.dart';
+import 'package:mypackages_use/screens/toast_screen.dart';
 import 'package:mypackages_use/stylesDecoration/stylesAndDecorations.dart';
 
 const splashScreenImage = 'assets/images/flutter-pack1.png';
@@ -87,13 +88,13 @@ List<BodyModel> bodyModel = [
         'Google Fonts collaborates with type designers, foundries and the design community worldwide to create a directory of open source fonts.',
     page: GoogleFontsScreen(),
   ),
-  // BodyModel(
-  //   headName: 'flutter-toast',
-  //   imageSrc: 'assets/images/flutter_toast.gif',
-  //   bodyDetails:
-  //       'Now this toast library supports two kinds of toast messages one which requires BuildContext other with No BuildContext',
-  //   page: DetailsScreen(),
-  // ),
+  const BodyModel(
+    headName: 'flutter-toast',
+    imageSrc: 'assets/images/flutter_toast.gif',
+    bodyDetails:
+        'Now this toast library supports two kinds of toast messages one which requires BuildContext other with No BuildContext',
+    page: ToastScreen(),
+  ),
 ];
 
 // show expansion panel in HomeScreen page
@@ -120,8 +121,6 @@ Widget buildBodyCenter({required List<Widget> list}) {
       color: Colors.blueGrey.shade100,
       shadowColor: Colors.black,
       child: ListView(
-        // mainAxisAlignment: MainAxisAlignment.start,
-        // crossAxisAlignment: CrossAxisAlignment.start,
         children: list,
       ),
     ),
