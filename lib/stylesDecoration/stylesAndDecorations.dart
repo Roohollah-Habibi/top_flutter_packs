@@ -16,7 +16,7 @@ ButtonStyle splashButtonStyle = OutlinedButton.styleFrom(
 // styling background color of splash screen
 Gradient splashScreenBackgroundColor = RadialGradient(
   radius: 1.4,
-  colors: [Colors.blueGrey, Colors.cyanAccent.shade700, Colors.indigo.shade900],
+  colors: [Colors.orange.shade300, Colors.cyanAccent.shade700, Colors.indigo.shade800],
 );
 
 // Styling expansion body text style
@@ -27,3 +27,8 @@ TextStyle detailsTextButtonStyle= const TextStyle(fontWeight: FontWeight.w900,fo
 
 // Styling seeMore in ExpansionPanel List
 TextStyle seeMoreStyle = const TextStyle(fontWeight: FontWeight.bold,fontSize: 15);
+
+TextStyle descriptionTitleStyle = const TextStyle(fontWeight: FontWeight.bold,fontSize: 23,color: Colors.black87);
+TextStyle descriptionStyle = const TextStyle(fontWeight: FontWeight.w500,fontSize: 20,color: Colors.black54);
+
+TextStyle textShimmerEffectStyle = const TextStyle(fontSize: 25,fontWeight: FontWeight.bold,letterSpacing: 1.5);

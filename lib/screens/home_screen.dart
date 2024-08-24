@@ -16,7 +16,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: DecoratedBox(
         decoration: BoxDecoration(
           gradient: splashScreenBackgroundColor,

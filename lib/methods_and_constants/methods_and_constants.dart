@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mypackages_use/custom_widgets/expansion_body.dart';
 import 'package:mypackages_use/models/Item.dart';
 import 'package:mypackages_use/custom_widgets/custom_expansion_panel.dart';
 import 'package:mypackages_use/models/bodyModel.dart';
 import 'package:mypackages_use/screens/details_screen.dart';
 import 'package:mypackages_use/screens/home_screen.dart';
+import 'package:mypackages_use/screens/shimmer.dart';
 import 'package:mypackages_use/stylesDecoration/stylesAndDecorations.dart';
 
 const splashScreenImage = 'assets/images/flutter-pack1.png';
+const shimmerNetworkImage = 'https://ew.com/thmb/59kmHdEEWDQ0ZuydbH0ZC9T1qyE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/tom-and-jerry1-27c66b94f51c4835bda8c91470dc8efa.jpg';
 
 // check if the layout is landscape or portrait
 Widget orientationBuilder(BuildContext context, Orientation orientation) {
@@ -62,12 +65,12 @@ void goHomeScreen(BuildContext ctx) {
 
 // Body mdel for bodyExpansion
 List<BodyModel> bodyModel = [
-   BodyModel(
+   const BodyModel(
     headName: 'Shimmer',
     imageSrc: 'assets/images/shimmer.gif',
     bodyDetails:
         'A package provides an easy way to add shimmer effect in Flutter project',
-    page: DetailsScreen(),
+    page: ShimmerPage(),
   ),
   //  BodyModel(
   //   headName: 'FontAwesome',
@@ -106,3 +109,126 @@ List<Item> expansionPanelHeaderAndBody = [
           newPage: bodyItem.page),
     ),
 ];
+
+// building description
+Text buildTextDescription(String description) {
+  return Text(
+    description,
+    textAlign: TextAlign.center,
+    style: descriptionStyle,
+  );
+}
+
+// building description title
+Widget buildDescriptionTitle(String title) {
+  return Padding(
+    padding: const EdgeInsets.only(
+      left: 15.0,
+      top: 15,
+    ),
+    child: Text(
+      title,
+      style: descriptionTitleStyle,
+      textAlign: TextAlign.start,
+    ),
+  );
+}
+
+// Building installing part
+Widget buildInstallingPart({required String pubAdd, required String import}) {
+  return Expanded(
+    child: Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        children: [
+          Card(
+            color: Colors.blueGrey.shade200,
+            child: ListTile(
+              title: const Text(
+                'with Flutter',
+                style: TextStyle(
+                    fontSize: 17, fontWeight: FontWeight.w900),
+              ),
+              subtitle:
+              buildTextDescription('\$ $pubAdd'),
+            ),
+          ),
+          Card(
+            color: Colors.blueGrey.shade200,
+            child: ListTile(
+              title: const Text(
+                'Import',
+                style: TextStyle(
+                    fontSize: 17, fontWeight: FontWeight.w900),
+              ),
+              subtitle:
+              buildTextDescription(import),
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+
+// Building a table to show the device supports
+Widget buildDataTable({
+  bool android = true,
+  bool ios = true,
+  bool web = true,
+  bool linux = true,
+  bool macOs = true,
+  bool windows = true,
+}) {
+  return DataTable(
+      columnSpacing: 20,
+      horizontalMargin: 10,
+      headingTextStyle: const TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 17,
+          color: Color.fromARGB(207, 95, 54, 143)),
+      border: TableBorder.all(
+          color: Colors.blue.shade400,
+          width: 2,
+          borderRadius: BorderRadius.circular(10)),
+      columns: const <DataColumn>[
+        DataColumn(
+          label: Text('Android'),
+          tooltip: 'Android',
+        ),
+        DataColumn(
+          label: Text('IOS'),
+          tooltip: 'IOS',
+        ),
+        DataColumn(
+          label: Text('Linux'),
+          tooltip: 'Linux',
+        ),
+        DataColumn(
+          label: Text('MacOs'),
+          tooltip: 'MacOs',
+        ),
+        DataColumn(
+          label: Text('Web'),
+          tooltip: 'Web',
+        ),
+        DataColumn(
+          label: Text('Windows'),
+          tooltip: 'Windows',
+        ),
+      ],
+      rows: <DataRow>[
+        DataRow(
+          cells: <DataCell>[
+            DataCell(Center(child: FaIcon(android? FontAwesomeIcons.check : FontAwesomeIcons.xmark,color: android? Colors.green.shade700 : Colors.red,))),
+            DataCell(Center(child: FaIcon(ios? FontAwesomeIcons.check : FontAwesomeIcons.xmark,color: ios? Colors.green.shade700 : Colors.red,))),
+            DataCell(Center(child: FaIcon(linux? FontAwesomeIcons.check : FontAwesomeIcons.xmark,color: linux? Colors.green.shade700 : Colors.red,))),
+            DataCell(Center(child: FaIcon(macOs? FontAwesomeIcons.check : FontAwesomeIcons.xmark,color: macOs? Colors.green.shade700 : Colors.red,))),
+            DataCell(Center(child: FaIcon(web? FontAwesomeIcons.check : FontAwesomeIcons.xmark,color: web? Colors.green.shade700 : Colors.red,))),
+            DataCell(Center(child: FaIcon(windows? FontAwesomeIcons.check : FontAwesomeIcons.xmark,color: windows? Colors.green.shade700 : Colors.red,))),
+          ],
+        ),
+      ]);
+}
+
