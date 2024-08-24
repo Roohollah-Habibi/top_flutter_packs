@@ -4,7 +4,8 @@ import 'package:mypackages_use/custom_widgets/expansion_body.dart';
 import 'package:mypackages_use/models/Item.dart';
 import 'package:mypackages_use/custom_widgets/custom_expansion_panel.dart';
 import 'package:mypackages_use/models/bodyModel.dart';
-import 'package:mypackages_use/screens/details_screen.dart';
+import 'package:mypackages_use/screens/font_awsome_screen.dart';
+import 'package:mypackages_use/screens/google_fonts_screen.dart';
 import 'package:mypackages_use/screens/home_screen.dart';
 import 'package:mypackages_use/screens/shimmer.dart';
 import 'package:mypackages_use/stylesDecoration/stylesAndDecorations.dart';
@@ -72,20 +73,20 @@ List<BodyModel> bodyModel = [
         'A package provides an easy way to add shimmer effect in Flutter project',
     page: ShimmerPage(),
   ),
-  //  BodyModel(
-  //   headName: 'FontAwesome',
-  //   imageSrc: 'assets/images/font-awesome.png',
-  //   bodyDetails:
-  //       'Font Awesome is the Internet\'s icon library and toolkit, used by millions of designers, developers, and content creators.',
-  //   page: DetailsScreen(),
-  // ),
-  //  BodyModel(
-  //   headName: 'GoogleFonts',
-  //   imageSrc: 'assets/images/google-fonts.gif',
-  //   bodyDetails:
-  //       'Google Fonts collaborates with type designers, foundries and the design community worldwide to create a directory of open source fonts.',
-  //   page: DetailsScreen(),
-  // ),
+   const BodyModel(
+    headName: 'FontAwesome',
+    imageSrc: 'assets/images/font-awesome.png',
+    bodyDetails:
+        'Font Awesome is the Internet\'s icon library and toolkit, used by millions of designers, developers, and content creators.',
+    page: FontAwesomeScreen(),
+  ),
+   const BodyModel(
+    headName: 'GoogleFonts',
+    imageSrc: 'assets/images/google-fonts.gif',
+    bodyDetails:
+        'Google Fonts collaborates with type designers, foundries and the design community worldwide to create a directory of open source fonts.',
+    page: GoogleFontsScreen(),
+  ),
   // BodyModel(
   //   headName: 'flutter-toast',
   //   imageSrc: 'assets/images/flutter_toast.gif',
@@ -109,6 +110,23 @@ List<Item> expansionPanelHeaderAndBody = [
           newPage: bodyItem.page),
     ),
 ];
+
+// building the widgets body
+Widget buildBodyCenter({required List<Widget> list}) {
+  return Center(
+    child: Card(
+      margin: const EdgeInsets.all(20),
+      elevation: 10,
+      color: Colors.blueGrey.shade100,
+      shadowColor: Colors.black,
+      child: ListView(
+        // mainAxisAlignment: MainAxisAlignment.start,
+        // crossAxisAlignment: CrossAxisAlignment.start,
+        children: list,
+      ),
+    ),
+  );
+}
 
 // building description
 Text buildTextDescription(String description) {
@@ -136,37 +154,36 @@ Widget buildDescriptionTitle(String title) {
 
 // Building installing part
 Widget buildInstallingPart({required String pubAdd, required String import}) {
-  return Expanded(
-    child: Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        children: [
-          Card(
-            color: Colors.blueGrey.shade200,
-            child: ListTile(
-              title: const Text(
-                'with Flutter',
-                style: TextStyle(
-                    fontSize: 17, fontWeight: FontWeight.w900),
-              ),
-              subtitle:
-              buildTextDescription('\$ $pubAdd'),
+  return Padding(
+    padding: const EdgeInsets.all( 8.0),
+    child: Column(
+      children: [
+        Card(
+          color: Colors.blueGrey.shade200,
+          child: ListTile(
+            isThreeLine: true,
+            title: const Text(
+              'with Flutter',
+              style: TextStyle(
+                  fontSize: 17, fontWeight: FontWeight.w900),
             ),
+            subtitle:
+            buildTextDescription('\$ $pubAdd'),
           ),
-          Card(
-            color: Colors.blueGrey.shade200,
-            child: ListTile(
-              title: const Text(
-                'Import',
-                style: TextStyle(
-                    fontSize: 17, fontWeight: FontWeight.w900),
-              ),
-              subtitle:
-              buildTextDescription(import),
+        ),
+        Card(
+          color: Colors.blueGrey.shade200,
+          child: ListTile(
+            title: const Text(
+              'Import',
+              style: TextStyle(
+                  fontSize: 17, fontWeight: FontWeight.w900),
             ),
+            subtitle:
+            buildTextDescription(import),
           ),
-        ],
-      ),
+        ),
+      ],
     ),
   );
 }
@@ -181,54 +198,60 @@ Widget buildDataTable({
   bool macOs = true,
   bool windows = true,
 }) {
-  return DataTable(
-      columnSpacing: 20,
-      horizontalMargin: 10,
-      headingTextStyle: const TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 17,
-          color: Color.fromARGB(207, 95, 54, 143)),
-      border: TableBorder.all(
-          color: Colors.blue.shade400,
-          width: 2,
-          borderRadius: BorderRadius.circular(10)),
-      columns: const <DataColumn>[
-        DataColumn(
-          label: Text('Android'),
-          tooltip: 'Android',
-        ),
-        DataColumn(
-          label: Text('IOS'),
-          tooltip: 'IOS',
-        ),
-        DataColumn(
-          label: Text('Linux'),
-          tooltip: 'Linux',
-        ),
-        DataColumn(
-          label: Text('MacOs'),
-          tooltip: 'MacOs',
-        ),
-        DataColumn(
-          label: Text('Web'),
-          tooltip: 'Web',
-        ),
-        DataColumn(
-          label: Text('Windows'),
-          tooltip: 'Windows',
-        ),
-      ],
-      rows: <DataRow>[
-        DataRow(
-          cells: <DataCell>[
-            DataCell(Center(child: FaIcon(android? FontAwesomeIcons.check : FontAwesomeIcons.xmark,color: android? Colors.green.shade700 : Colors.red,))),
-            DataCell(Center(child: FaIcon(ios? FontAwesomeIcons.check : FontAwesomeIcons.xmark,color: ios? Colors.green.shade700 : Colors.red,))),
-            DataCell(Center(child: FaIcon(linux? FontAwesomeIcons.check : FontAwesomeIcons.xmark,color: linux? Colors.green.shade700 : Colors.red,))),
-            DataCell(Center(child: FaIcon(macOs? FontAwesomeIcons.check : FontAwesomeIcons.xmark,color: macOs? Colors.green.shade700 : Colors.red,))),
-            DataCell(Center(child: FaIcon(web? FontAwesomeIcons.check : FontAwesomeIcons.xmark,color: web? Colors.green.shade700 : Colors.red,))),
-            DataCell(Center(child: FaIcon(windows? FontAwesomeIcons.check : FontAwesomeIcons.xmark,color: windows? Colors.green.shade700 : Colors.red,))),
+  return SizedBox(
+    child: SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: DataTable(
+          columnSpacing: 20,
+          horizontalMargin: 10,
+          headingTextStyle: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 17,
+              color: Color.fromARGB(207, 95, 54, 143)),
+          border: TableBorder.all(
+              color: Colors.blue.shade400,
+              width: 2,
+              borderRadius: BorderRadius.circular(10)),
+          columns: const <DataColumn>[
+            DataColumn(
+              label: Text('Android'),
+              tooltip: 'Android',
+            ),
+            DataColumn(
+              label: Text('IOS'),
+              tooltip: 'IOS',
+            ),
+            DataColumn(
+              label: Text('Linux'),
+              tooltip: 'Linux',
+            ),
+            DataColumn(
+              label: Text('MacOs'),
+              tooltip: 'MacOs',
+            ),
+            DataColumn(
+              label: Text('Web'),
+              tooltip: 'Web',
+            ),
+            DataColumn(
+              label: Text('Windows'),
+              tooltip: 'Windows',
+            ),
           ],
-        ),
-      ]);
+          rows: <DataRow>[
+            DataRow(
+              cells: <DataCell>[
+                DataCell(Center(child: FaIcon(android? FontAwesomeIcons.check : FontAwesomeIcons.xmark,color: android? Colors.green.shade700 : Colors.red,))),
+                DataCell(Center(child: FaIcon(ios? FontAwesomeIcons.check : FontAwesomeIcons.xmark,color: ios? Colors.green.shade700 : Colors.red,))),
+                DataCell(Center(child: FaIcon(linux? FontAwesomeIcons.check : FontAwesomeIcons.xmark,color: linux? Colors.green.shade700 : Colors.red,))),
+                DataCell(Center(child: FaIcon(macOs? FontAwesomeIcons.check : FontAwesomeIcons.xmark,color: macOs? Colors.green.shade700 : Colors.red,))),
+                DataCell(Center(child: FaIcon(web? FontAwesomeIcons.check : FontAwesomeIcons.xmark,color: web? Colors.green.shade700 : Colors.red,))),
+                DataCell(Center(child: FaIcon(windows? FontAwesomeIcons.check : FontAwesomeIcons.xmark,color: windows? Colors.green.shade700 : Colors.red,))),
+              ],
+            ),
+          ]),
+    ),
+  );
 }
 
