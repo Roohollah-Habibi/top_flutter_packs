@@ -18,7 +18,7 @@ class PhotoViewScreen extends StatelessWidget {
       ),
       body: buildBodyCenter(
         list: [
-          SizedBox(height: 300,width: 200,child: PhotoView(imageProvider: AssetImage(imgSrc,))),
+          SizedBox(height: 300,width: 200,child: PhotoView(imageProvider: const AssetImage(imgSrc,))),
           const SizedBox(height: 20),
           buildDescriptionTitle('#Description'),
           buildTextDescription(description),

@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mypackages_use/custom_widgets/expansion_body.dart';
-import 'package:mypackages_use/models/Item.dart';
+import 'package:mypackages_use/models/item.dart';
 import 'package:mypackages_use/custom_widgets/custom_expansion_panel.dart';
-import 'package:mypackages_use/models/bodyModel.dart';
+import 'package:mypackages_use/models/body_model.dart';
 import 'package:mypackages_use/screens/audio_player_screen.dart';
 import 'package:mypackages_use/screens/font_awsome_screen.dart';
 import 'package:mypackages_use/screens/google_fonts_screen.dart';
 import 'package:mypackages_use/screens/home_screen.dart';
+import 'package:mypackages_use/screens/intl_screen.dart';
 import 'package:mypackages_use/screens/photo_view_screen.dart';
 import 'package:mypackages_use/screens/rflutter_screen.dart';
 import 'package:mypackages_use/screens/share_plus_screen.dart';
 import 'package:mypackages_use/screens/shimmer.dart';
+import 'package:mypackages_use/screens/spinkit_screen.dart';
 import 'package:mypackages_use/screens/toast_screen.dart';
-import 'package:mypackages_use/stylesDecoration/stylesAndDecorations.dart';
+import 'package:mypackages_use/stylesDecoration/styles_decorations.dart';
 
 const splashScreenImage = 'assets/images/flutter-pack1.png';
 const shimmerNetworkImage = 'https://ew.com/thmb/59kmHdEEWDQ0ZuydbH0ZC9T1qyE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/tom-and-jerry1-27c66b94f51c4835bda8c91470dc8efa.jpg';
@@ -71,6 +73,7 @@ void goHomeScreen(BuildContext ctx) {
 
 // Body mdel for bodyExpansion
 List<BodyModel> bodyModel = [
+  const BodyModel(imageSrc: 'assets/images/intl.png', bodyDetails: 'Provides internationalization and localization facilities, includingdate/number formatting and parsing, and bidirectional text.', page: IntlScreen(), headName: 'Intl Pack'),
    const BodyModel(
     headName: 'Shimmer',
     imageSrc: 'assets/images/shimmer.gif',
@@ -120,6 +123,7 @@ List<BodyModel> bodyModel = [
     'A simple zoomable image/content widget for Flutter.PhotoView enables images to become able to zoom and pan with user gestures such as pinch, rotate and drag',
     page: PhotoViewScreen(),
   ),
+  const BodyModel(imageSrc: 'assets/images/spin2.gif', bodyDetails: 'A collection of loading indicators animated with flutter. Heavily inspired by @tobiasahlin\'s SpinKit.', page: SpinkitScreen(), headName: 'Spin kit'),
   const BodyModel(imageSrc: 'assets/images/share_links.png', bodyDetails: 'A Flutter plugin to share content from your Flutter app via the platform\'s share dialog.', page: SharePlusScreen(), headName: 'Share_plus'),
 ];
 
@@ -142,10 +146,11 @@ List<Item> expansionPanelHeaderAndBody = [
 Widget buildBodyCenter({required List<Widget> list}) {
   return Center(
     child: Card(
+      shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(50)),
       margin: const EdgeInsets.all(20),
-      elevation: 10,
-      color: Colors.blueGrey.shade100,
-      shadowColor: Colors.black,
+      elevation: 6,
+      color: Colors.lightBlue.shade50,
+      shadowColor: Colors.orange,
       child: ListView(
         children: list,
       ),

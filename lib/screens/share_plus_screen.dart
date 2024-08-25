@@ -34,8 +34,7 @@ class _SharePlusScreenState extends State<SharePlusScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10.0),
           child: ElevatedButton.icon(
             onPressed: () {
-              Share.share('Hello ');
-              print('------------------');
+              Share.share('check out my website https://example.com', subject: 'Look what I made!');
             },
             label: const Text('Share App',style: TextStyle(fontSize: 20),),
             iconAlignment: IconAlignment.end,

@@ -4,23 +4,25 @@ import 'package:google_fonts/google_fonts.dart';
 // styling button in splash screen
 ButtonStyle splashButtonStyle = OutlinedButton.styleFrom(
   foregroundColor: Colors.black,
-  iconColor: Colors.indigo.shade900,
+  iconColor: Colors.yellow,
   overlayColor: Colors.indigo.shade900,
-  textStyle: const TextStyle(fontSize: 17,fontWeight: FontWeight.bold),
-  side: const BorderSide(width: 3, color: Colors.indigo),
-  fixedSize: const Size(120, 100),
+  textStyle: const TextStyle(fontSize: 20,fontWeight: FontWeight.w900),
+  side: const BorderSide(width: 3, color: Colors.white),
+  fixedSize: const Size(122, 120),
   alignment: Alignment.center,
   shape: const StarBorder.polygon(pointRounding: 1, sides: 6),
 );
 
 // styling background color of splash screen
 Gradient splashScreenBackgroundColor = RadialGradient(
+  center: Alignment.centerLeft,
+  focalRadius: 2,
   radius: 1.4,
-  colors: [Colors.orange.shade300, Colors.cyanAccent.shade700, Colors.indigo.shade800],
+  colors: [Colors.yellow, Colors.purple, Colors.indigo.shade800],
 );
 
 // Styling expansion body text style
-TextStyle expansionDetailsTextStyle = GoogleFonts.oswald(fontWeight: FontWeight.w700,fontSize: 20,letterSpacing: 2,color: Colors.black87);
+TextStyle expansionDetailsTextStyle = GoogleFonts.oswald(fontWeight: FontWeight.w700,fontSize: 20,letterSpacing: 2,color: Colors.white70);
 
 // Styling expansion TextButton textStyle
 TextStyle detailsTextButtonStyle= const TextStyle(fontWeight: FontWeight.w900,fontSize: 20);

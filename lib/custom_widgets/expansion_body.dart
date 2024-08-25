@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mypackages_use/stylesDecoration/stylesAndDecorations.dart';
+import 'package:mypackages_use/stylesDecoration/styles_decorations.dart';
 
 const imageSrc = 'assets/images/shimmer.gif';
 
