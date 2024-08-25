@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mypackages_use/methods_and_constants/methods_and_constants.dart';
+import 'package:share_plus/share_plus.dart';
 
 const imgSrc = 'assets/images/share_links.png';
 const String description =
@@ -32,7 +33,10 @@ class _SharePlusScreenState extends State<SharePlusScreen> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10.0),
           child: ElevatedButton.icon(
-            onPressed: () {},
+            onPressed: () {
+              Share.share('Hello ');
+              print('------------------');
+            },
             label: const Text('Share App',style: TextStyle(fontSize: 20),),
             iconAlignment: IconAlignment.end,
             icon: const FaIcon(FontAwesomeIcons.share),
