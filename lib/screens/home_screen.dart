@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mypackages_use/methods_and_constants/methods_and_constants.dart';
-import 'package:mypackages_use/stylesDecoration/stylesAndDecorations.dart';
+import 'package:mypackages_use/stylesDecoration/styles_decorations.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,6 +17,16 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(132, 79, 19, 111),
+        leadingWidth: 30,
+        centerTitle: true,
+        title: const Text('top packs you should know'),
+        leading: const Padding(
+          padding: EdgeInsets.only(top: 15.0,left: 20),
+          child: FaIcon(FontAwesomeIcons.camera),
+        ),
+      ),
       body: DecoratedBox(
         decoration: BoxDecoration(
           gradient: splashScreenBackgroundColor,
